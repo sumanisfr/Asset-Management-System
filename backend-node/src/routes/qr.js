@@ -24,7 +24,7 @@ router.get('/:assetTag', async (req, res) => {
 
   const qrUrl = await generateQrCode(assetTag);
   res.setHeader('Content-Type', 'image/png');
-  fs.createReadStream(path.resolve(qrUrl.replace('/uploads', '').replace(/^\//, ''))).pipe(res);
+  fs.createReadStream(filePath).pipe(res);
 });
 
 router.post('/regenerate/:assetTag', authenticate, async (req, res) => {
