@@ -18,6 +18,10 @@ const AssetFormPage   = lazy(() => import('./pages/assets/AssetFormPage'))
 const AssetDetailPage = lazy(() => import('./pages/assets/AssetDetailPage'))
 const EmployeesPage   = lazy(() => import('./pages/employees/EmployeesPage'))
 const MaintenancePage = lazy(() => import('./pages/maintenance/MaintenancePage'))
+const AllocationPage  = lazy(() => import('./pages/allocation/AllocationPage'))
+const VendorsPage     = lazy(() => import('./pages/vendors/VendorsPage'))
+const WarrantyPage    = lazy(() => import('./pages/warranty/WarrantyPage'))
+const DepreciationPage = lazy(() => import('./pages/depreciation/DepreciationPage'))
 const ReportsPage     = lazy(() => import('./pages/reports/ReportsPage'))
 const AiAssistantPage = lazy(() => import('./pages/ai/AiAssistantPage'))
 const QrScannerPage   = lazy(() => import('./pages/qr/QrScannerPage'))
@@ -135,15 +139,15 @@ export default function App() {
                 <Route path="/ocr-scanner"      element={<OcrScannerPage />} />
                 <Route path="/employees"        element={<EmployeesPage />} />
                 <Route path="/maintenance"      element={<MaintenancePage />} />
+                <Route path="/allocation"       element={<AllocationPage />} />
+                <Route path="/vendors"          element={<VendorsPage />} />
+                <Route path="/warranty"         element={<WarrantyPage />} />
+                <Route path="/depreciation"     element={<DepreciationPage />} />
 
                 {/* Scaffolded modules */}
                 {[
                   ['categories',   'Asset Categories'],
-                  ['allocation',   'Asset Allocation'],
-                  ['vendors',      'Vendor Management'],
                   ['return',       'Asset Returns'],
-                  ['warranty',     'Warranty Tracker'],
-                  ['depreciation', 'Depreciation Ledger'],
                   ['movements',    'Asset Movements'],
                   ['health',       'Asset Health Monitor'],
                   ['budget',       'Budget Forecasting'],

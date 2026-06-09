@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import {
   LayoutDashboard, Package, Tag, Users, Building2,
   GitBranch, RotateCcw, Wrench, QrCode, BarChart3,
-  Bell, Settings, UserCog, LogOut, ChevronRight
+  Bell, Settings, UserCog, LogOut, ChevronRight, Shield, Landmark
 } from 'lucide-react'
 import useAuthStore from '../../store/authStore'
 
@@ -17,6 +17,8 @@ const navItems = [
   { to: '/allocation',  icon: GitBranch,        label: 'Asset Assignment' },
   { to: '/return',      icon: RotateCcw,        label: 'Return Assets' },
   { to: '/maintenance', icon: Wrench,           label: 'Maintenance' },
+  { to: '/warranty',     icon: Shield,           label: 'Warranty Tracker' },
+  { to: '/depreciation', icon: Landmark,         label: 'Depreciation Ledger' },
   { to: '/qr-scanner',   icon: QrCode,           label: 'QR Code Scanner' },
   { to: '/reports',      icon: BarChart3,        label: 'Reports' },
   { to: '/notifications', icon: Bell,           label: 'Notifications' },
