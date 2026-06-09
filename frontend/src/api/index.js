@@ -4,11 +4,17 @@ import {
   demoDashboard,
   demoDepartments,
   fallbackOnNetworkError,
+  demoEmployeePage,
+  demoAllocationPage,
+  demoVendorPage,
+  demoMaintenancePage,
+  demoWarrantyPage,
+  demoDepreciationPage,
 } from './mockData'
 export { assetApi } from './assetApi'
 
 export const employeeApi = {
-  getAll: (params) => axiosClient.get('/employees', { params }),
+  getAll: (params) => fallbackOnNetworkError(axiosClient.get('/employees', { params }), demoEmployeePage),
   getById: (id) => axiosClient.get(`/employees/${id}`),
   create: (data) => axiosClient.post('/employees', data),
   update: (id, data) => axiosClient.put(`/employees/${id}`, data),
@@ -17,7 +23,7 @@ export const employeeApi = {
 }
 
 export const allocationApi = {
-  getAll: (params) => axiosClient.get('/allocations', { params }),
+  getAll: (params) => fallbackOnNetworkError(axiosClient.get('/allocations', { params }), demoAllocationPage),
   getById: (id) => axiosClient.get(`/allocations/${id}`),
   assign: (data) => axiosClient.post('/allocations/assign', data),
   return: (id, notes) => axiosClient.post(`/allocations/${id}/return`, { notes }),
@@ -27,7 +33,7 @@ export const allocationApi = {
 }
 
 export const vendorApi = {
-  getAll: (params) => axiosClient.get('/vendors', { params }),
+  getAll: (params) => fallbackOnNetworkError(axiosClient.get('/vendors', { params }), demoVendorPage),
   getById: (id) => axiosClient.get(`/vendors/${id}`),
   create: (data) => axiosClient.post('/vendors', data),
   update: (id, data) => axiosClient.put(`/vendors/${id}`, data),
@@ -36,7 +42,7 @@ export const vendorApi = {
 }
 
 export const maintenanceApi = {
-  getAll: (params) => axiosClient.get('/maintenance', { params }),
+  getAll: (params) => fallbackOnNetworkError(axiosClient.get('/maintenance', { params }), demoMaintenancePage),
   getById: (id) => axiosClient.get(`/maintenance/${id}`),
   create: (data) => axiosClient.post('/maintenance', data),
   update: (id, data) => axiosClient.put(`/maintenance/${id}`, data),
@@ -54,15 +60,15 @@ export const dashboardApi = {
 }
 
 export const warrantyApi = {
-  getAll: (params) => axiosClient.get('/warranty', { params }),
-  getExpiring: (days, params) => axiosClient.get('/warranty/expiring', { params: { days, ...params } }),
+  getAll: (params) => fallbackOnNetworkError(axiosClient.get('/warranty', { params }), demoWarrantyPage),
+  getExpiring: (days, params) => fallbackOnNetworkError(axiosClient.get('/warranty/expiring', { params: { days, ...params } }), demoWarrantyPage),
   getByAsset: (assetId) => axiosClient.get(`/warranty/asset/${assetId}`),
 }
 
 export const depreciationApi = {
   calculate: (assetId) => axiosClient.post(`/depreciation/calculate/${assetId}`),
   calculateAll: () => axiosClient.post('/depreciation/calculate-all'),
-  getRecords: (params) => axiosClient.get('/depreciation/records', { params }),
+  getRecords: (params) => fallbackOnNetworkError(axiosClient.get('/depreciation/records', { params }), demoDepreciationPage),
 }
 
 export const healthApi = {
